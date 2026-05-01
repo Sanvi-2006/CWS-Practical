@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>JavaScript Form Validation</title>
+ <script>
+ function validateForm() {
+ // Username validation
+ var uname = document.getElementById("uname").value;
+ if (uname == "") {
+ alert("Please enter User Name");
+ return false;
+ }
+ // Address validation
+ var address = document.getElementById("address").value;
+ if (address == "") {
+ alert("Please enter Address");
+ return false;
+ }
+ // Date of Birth validation
+ var dob = document.getElementById("dob").value;
+ if (dob == "") {
+ alert("Please select Date of Birth");
+ return false;
+ }
+ // Email validation
+ var email = document.getElementById("email").value;
+ var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+ if (!email.match(emailPattern)) {
+ alert("Please enter valid Email ID");
+ return false;
+ }
+ // PAN number validation
+ var pan = document.getElementById("pan").value;
+ var panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+ if (!pan.match(panPattern)) {
+ alert("Please enter valid PAN Number");
+ return false;
+ }
+ // Aadhaar number validation
+ var aadhar = document.getElementById("aadhar").value;
+ if (aadhar.length != 12 || isNaN(aadhar)) {
+ alert("Please enter valid 12-digit Aadhaar Number");
+ return false;
+ }
+ // Education validation
+ var education = document.getElementById("education").value;
+ if (education == "") {
+ alert("Please select Education");
+ return false;
+ }
+ // Contact number validation
+ var contact = document.getElementById("contact").value;
+ if (contact.length != 10 || isNaN(contact)) {
+ alert("Please enter valid 10-digit Contact Number");
+ return false;
+ }
+ alert("Form Submitted Successfully");
+ return true;
+ }
+ </script>
+</head>
+<body>
+<h2>User Registration Form</h2>
+<fieldset>
+<legend><b>Personal Details:</b></legend>
+<form onsubmit="return validateForm()">
+ Name:
+ <input type="text" id="uname"><br><br>
+ Address:
+ <textarea id="address"></textarea><br><br>
+ Date of Birth:
+ <input type="date" id="dob"><br><br>
+ Email ID:
+ <input type="text" id="email"><br><br>
+ PAN Number:
+ <input type="text" id="pan" placeholder="ABCDE1234F"><br><br>
+ Aadhaar Number:
+ <input type="text" id="aadhar"><br><br>
+ Education:
+ <select id="education">
+ <option value="">--Select--</option>
+ <option>SSC</option>
+ <option>HSC</option>
+ <option>Graduate</option>
+ <option>Post Graduate</option>
+ </select><br><br>
+ Contact Number:
+ <input type="text" id="contact"><br>
+</fieldset>
+<br>
+ <input type="submit" value="Submit">
+</form>
+</body>
+</html>
